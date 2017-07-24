@@ -1,6 +1,6 @@
 # yes
 
-> mobileInfore vue demo project
+> one of vue 
 
 ## Build Setup
 
