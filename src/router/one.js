@@ -5,7 +5,8 @@ import Music from '../components/one/music.vue'
 import Movie from '../components/one/movie.vue'
 import Download from '../components/one/download.vue'
 import About from '../components/one/about.vue'
-import ReadDetail from '../components/one/details/read/detail.vue'
+import ReadDetail from '../components/one/details/read/readDetail.vue'
+import QuestionDetail from '../components/one/details/read/questionDetail.vue'
 
 Vue.use(Router)
 
@@ -40,6 +41,11 @@ export default new Router({
       path: '/readDetail',
       name: 'readDetail',
       component: ReadDetail
+    },
+    {
+      path: '/questionDetail',
+      name: 'questionDetail',
+      component: QuestionDetail
     }
   ]
 })

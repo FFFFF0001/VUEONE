@@ -13,7 +13,13 @@ class GetArticleDetail extends baseRequest {
     return Urls.read.getArticleDetail
   }
 }
+class GetQuestionDetail extends baseRequest {
+  requestUrl () {
+    return Urls.read.getQuestionDetail
+  }
+}
 export {
   GetLatestArticle,
-  GetArticleDetail
+  GetArticleDetail,
+  GetQuestionDetail
 }

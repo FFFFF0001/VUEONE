@@ -1,8 +1,9 @@
 <template>
   <div>
     <x-header style="background-color: white">
-      <div style="color:#757575;font-size: 16px">{{essay.hp_title}}</div>
+      <div style="color:#757575;font-size: 16px">阅读·文字</div>
     </x-header>
+    <div class="essay-title">{{essay.hp_title}}</div>
     <div class="essay essay-guide">"{{essay.guide_word}}"</div>
     <audio style="margin-top: 5px;margin-left: 15px" :src="essay.audio" controls="controls" v-if="canAudio"></audio>
     <p style="margin-left: 15px" id="essay-anchor" v-if="canAudio">{{essay.anchor}}</p>
@@ -49,6 +50,13 @@
     width: 100%;
   }
 
+  .essay-title{
+    font-size: 22px;
+    color: #999999;
+    font-weight: 300;
+    text-align: center;
+    letter-spacing: 1px;
+  }
   .essay {
     padding-left: 15px;
     padding-right: 15px;
@@ -56,8 +64,10 @@
 
   .essay-guide {
     padding-top: 10px;
-    font-size: 13px;
+    font-size: 14px;
     color: #999999;
+    font-weight: 300;
+    letter-spacing: 1px;
   }
 
   .essay-content {
@@ -65,10 +75,13 @@
     font-size: 15px;
     color: #666666;
     margin-bottom: 15px;
+    font-weight: 300;
+    letter-spacing: 1px;
   }
 
   #essay-anchor {
     font-size: 10px;
     color: #999999;
+    font-weight: 300;
   }
 </style>

@@ -2,7 +2,7 @@
  * Created by coderxuan on 2017/7/24.
  */
 const drawerRoutes = {
-  home: '图文',
+  home: '一个',
   read: '阅读',
   music: '音乐',
   movie: '影视',

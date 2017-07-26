@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Drawer ref="drawer"/>
+    <Drawer title="一个" ref="drawer"/>
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in pictureIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
@@ -105,7 +105,12 @@
         })
       },
       routeQuestion: function (id) {
-        console.log(id)
+        this.$router.push({
+          name: 'questionDetail',
+          params: {
+            'id': id
+          }
+        })
       }
     }
   }
@@ -125,13 +130,15 @@
     padding-left: 25px;
     padding-bottom: 10px;
     display: flex;
-    height: 160px;
+    height: 180px;
     flex-direction: column;
     flex: 1;
     .story-key {
       text-align: center;
       font-size: 15px;
       color: #9e9e9e;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
     .story-img {
       position: absolute;
@@ -139,21 +146,29 @@
       height: 33px;
       margin-top: -5px;
       margin-left: -5px;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
     .story-title {
       margin-top: 10px;
       font-size: 19px;
       color: #666666;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
     .story-guide {
       margin-top: 5px;
       font-size: 15px;
       color: #999999;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
     .story-author {
       margin-top: 5px;
       font-size: 12px;
       color: #999999;
+      font-weight: 300;
+      letter-spacing: 1px;
     }
   }
 </style>

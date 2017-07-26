@@ -9,7 +9,8 @@ const Urls = {
   },
   read: {
     getLatestArticle: '/reading/index',
-    getArticleDetail: '/essay/'
+    getArticleDetail: '/essay/',
+    getQuestionDetail: '/question/'
   }
 }
 export default Urls

@@ -76,7 +76,7 @@ var pages = utils.getEntries('./src/module/**/' + config.module.name + '.html', 
 for (var pathname in pages) {
   // 生成html相关配置
   var conf = {
-    filename: pathname, // html文件输出路径
+    filename: process.env.NODE_ENV === 'production' ? 'index.html' : pathname, // html文件输出路径
     template: pages[pathname],   // 模板路径
     inject: true,                // js插入位置
     minify: {
@@ -110,7 +110,7 @@ for (var pathname in pages) {
   webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
 }
 
-const vuxConfig= {
+const vuxConfig = {
   plugins: [{
     name: 'vux-ui'
   }]

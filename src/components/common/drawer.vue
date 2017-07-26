@@ -32,11 +32,17 @@
     components: {
       XHeader
     },
+    props: {
+      title: {
+        type: String,
+        default: '一个'
+      }
+    },
     data () {
       return {
         docked: true,
         open: false,
-        headerTitle: drawerRoutes['home']
+        headerTitle: this.title
       }
     },
     methods: {
