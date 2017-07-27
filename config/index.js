@@ -6,7 +6,7 @@ module.exports = {
     env: require('./prod.env'),
     // index: path.resolve(__dirname, '../dist/index.html'),
     // assetsRoot: path.resolve(__dirname, '../dist'),
-    assetsRoot: path.resolve(__dirname, '/Users/coderxuan/Desktop/OneVue'),
+    assetsRoot: path.resolve(__dirname, '/Users/coderxuan/Desktop/Computer/VUEONE'),
     assetsSubDirectory: 'static',
     assetsPublicPath: './',
     productionSourceMap: true,

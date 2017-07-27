@@ -11,6 +11,10 @@ const Urls = {
     getLatestArticle: '/reading/index',
     getArticleDetail: '/essay/',
     getQuestionDetail: '/question/'
+  },
+  music: {
+    getMusicIdList: '/music/idlist/0',
+    getMusicDetail: '/music/detail/'
   }
 }
 export default Urls
