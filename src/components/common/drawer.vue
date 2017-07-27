@@ -12,12 +12,6 @@
         <mu-list-item @click="route('music')">
           <div class="mu-item">音乐</div>
         </mu-list-item>
-        <mu-list-item @click="route('movie')">
-          <div class="mu-item">影视</div>
-        </mu-list-item>
-        <mu-list-item @click="route('download')">
-          <div class="mu-item">App下载</div>
-        </mu-list-item>
         <mu-list-item @click="route('about')">
           <div class="mu-item">关于</div>
         </mu-list-item>

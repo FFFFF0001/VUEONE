@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Drawer title="一个" ref="drawer"/>
+    <Drawer title="听说" ref="drawer"/>
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in pictureIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
