@@ -1,9 +1,6 @@
 <template>
   <div>
-    <Drawer title="关于我" ref="drawer"/>
-    <div>
-
-    </div>
+    <Drawer title="今天" ref="drawer"/>
   </div>
 </template>
 

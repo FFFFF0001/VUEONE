@@ -4,6 +4,7 @@
 const drawerRoutes = {
   home: '听说',
   music: '音乐',
-  about: '关于'
+  today: '今天',
+  about: '关于我'
 }
 export { drawerRoutes }

@@ -7,13 +7,16 @@
     <mu-drawer :width="185" :open="open" :docked="docked" @close="toggle()">
       <mu-list @itemClick="docked ? '' : toggle()">
         <mu-list-item @click="route('home')">
-          <div class="mu-item">阅读</div>
+          <div class="mu-item">听说</div>
         </mu-list-item>
         <mu-list-item @click="route('music')">
           <div class="mu-item">音乐</div>
         </mu-list-item>
+        <mu-list-item @click="route('today')">
+          <div class="mu-item">今天</div>
+        </mu-list-item>
         <mu-list-item @click="route('about')">
-          <div class="mu-item">关于</div>
+          <div class="mu-item">关于我</div>
         </mu-list-item>
       </mu-list>
     </mu-drawer>
