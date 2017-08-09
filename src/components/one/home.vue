@@ -1,6 +1,6 @@
 <template>
   <div>
-    <swiper :options="swiperEssayOption" ref="mySwiper">
+    <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in pictureIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
       </swiper-slide>

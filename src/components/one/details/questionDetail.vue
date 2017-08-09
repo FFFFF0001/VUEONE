@@ -1,8 +1,5 @@
 <template>
   <div>
-    <x-header style="background-color: white">
-      <div style="color:#757575;font-size: 16px">阅读·问答</div>
-    </x-header>
     <div class="question question-title">{{question.question_title}}</div>
     <div class="question question-guide">{{question.question_content}}</div>
     <div class="question question-guide">--{{question.asker.user_name}}问到</div>

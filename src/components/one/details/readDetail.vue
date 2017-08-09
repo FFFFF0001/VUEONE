@@ -1,8 +1,5 @@
 <template>
   <div>
-    <x-header style="background-color: white">
-      <div style="color:#757575;font-size: 16px">阅读·文字</div>
-    </x-header>
     <div class="essay-title">{{essay.hp_title}}</div>
     <div class="essay essay-guide">"{{essay.guide_word}}"</div>
     <audio style="margin-top: 5px;margin-left: 15px" :src="essay.audio" controls="controls" v-if="canAudio"></audio>
