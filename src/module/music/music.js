@@ -1,6 +1,6 @@
 import Vue from 'vue'
-import App from './one.vue'
-import router from '../../router/one'
+import App from './music.vue'
+import router from '../../router/music'
 import '../../assets/css/main.css'
 import MuseUI from 'muse-ui'
 import 'muse-ui/dist/muse-ui.css'

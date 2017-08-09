@@ -1,7 +1,6 @@
 <template>
   <div>
-    <Drawer title="听说" ref="drawer"/>
-    <swiper :options="swiperOption" ref="mySwiper">
+    <swiper :options="swiperEssayOption" ref="mySwiper">
       <swiper-slide v-for="item in pictureIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
       </swiper-slide>
@@ -39,15 +38,13 @@
   import { GetPictureIdList } from '../../network/picture/PictureRequests'
   import { GetLatestArticle } from '../../network/read/ReadRequest'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import swipeItem from '../common/home/swipeItem.vue'
-  import Drawer from '../../components/common/drawer.vue'
+  import swipeItem from './swipeItem.vue'
   const REQUEST_INST = 10
   export default{
     components: {
       swiper,
       swiperSlide,
-      swipeItem,
-      Drawer
+      swipeItem
     },
     computed: {
       swiper () {

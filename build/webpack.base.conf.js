@@ -2,19 +2,20 @@ var path = require('path')
 var utils = require('./utils')
 var config = require('../config')
 var vueLoaderConfig = require('./vue-loader.conf')
-var entries = utils.getEntries('./src/module/**/' + config.module.name + '.js')// 获得入口js文件
+var entries = utils.getEntries('./src/module/**/'+config.module.name+'.js')// 获得入口js文件
+var libs=path.resolve(__dirname, '../static/libs')
+
 var HtmlWebpackPlugin = require('html-webpack-plugin')
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
 
-const vuxLoader = require('vux-loader')
 
 const webpackConfig = {
   // entry: {
   //   app: './src/main.js'
   // },
-  entry: entries,
+  entry:entries,
   output: {
     path: config.build.assetsRoot,
     // filename: '[name].js',
@@ -26,7 +27,7 @@ const webpackConfig = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
     }
   },
   module: {
@@ -34,7 +35,7 @@ const webpackConfig = {
       {
         test: /\.(js|vue)$/,
         loader: 'eslint-loader',
-        enforce: 'pre',
+        enforce: "pre",
         include: [resolve('src'), resolve('test')],
         options: {
           formatter: require('eslint-friendly-formatter')
@@ -68,15 +69,15 @@ const webpackConfig = {
       }
     ]
   },
-  plugins: []
+  plugins:[]
 }
 
-var pages = utils.getEntries('./src/module/**/' + config.module.name + '.html', 1)
+var pages = utils.getEntries('./src/module/**/'+config.module.name+'.html',1);
 
 for (var pathname in pages) {
   // 生成html相关配置
   var conf = {
-    filename: process.env.NODE_ENV === 'production' ? 'index.html' : pathname, // html文件输出路径
+    filename: pathname, // html文件输出路径
     template: pages[pathname],   // 模板路径
     inject: true,                // js插入位置
     minify: {
@@ -89,31 +90,36 @@ for (var pathname in pages) {
     },
     // necessary to consistently work with multiple chunks via CommonsChunkPlugin
     // chunksSortMode: 'dependency'
-  }
-  pathname = pathname.split('/')[1]//去掉views
+  };
+  pathname=pathname.split("/")[1];//去掉views
   if (pathname in webpackConfig.entry) {
-    conf.inject = 'body'
+    conf.inject = 'body';
     //如果每个html没有进入这里的话，那么全部js将会插入html
-    conf.chunks = ['env', pathname, 'vendor', 'manifest'],
-      conf.hash = true
+    conf.chunks = ['env',pathname, 'vendor', 'manifest'],
+      conf.hash = true;
     var temp = pathname
     conf.chunksSortMode = function (chunk1, chunk2) {
-      var order = ['manifest', 'vendor', 'env', temp]
+      var order = ['manifest','vendor','env',temp];
       console.log(order)
-      var order1 = order.indexOf(chunk1.names[0])
-      var order2 = order.indexOf(chunk2.names[0])
-      console.log(chunk1.names[0] + '--' + order1 + '---chunk2==' + chunk2.names[0] + '---order2==' + order2)
-      return order1 - order2
+      var order1 = order.indexOf(chunk1.names[0]);
+      var order2 = order.indexOf(chunk2.names[0]);
+      console.log(chunk1.names[0]+'--'+order1+'---chunk2=='+chunk2.names[0]+'---order2=='+order2)
+      return order1 - order2;
     }
     conf.moduleName = pathname
   }
-  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf))
+  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));
 }
 
-const vuxConfig = {
+
+
+const vuxLoader = require('vux-loader')
+
+const vuxConfig= {
   plugins: [{
     name: 'vux-ui'
   }]
 }
-
+// console.log(webpackConfig)
 module.exports = vuxLoader.merge(webpackConfig, vuxConfig)
+

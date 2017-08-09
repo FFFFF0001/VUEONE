@@ -11,7 +11,7 @@
   </div>
 </template>
 <script>
-  import { GetMusicDetail } from '../../../network/music/MusicRequests'
+  import { GetMusicDetail } from '../../network/music/MusicRequests'
   export default {
     mounted: function () {
       this.initData()

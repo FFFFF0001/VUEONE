@@ -1,6 +1,5 @@
 <template>
   <div>
-    <Drawer title="音乐" ref="drawer"/>
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in musicIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
@@ -11,12 +10,10 @@
 
 <script type="text/ecmascript-6">
   import { GetMusicIdList } from '../../network/music/MusicRequests'
-  import Drawer from '../../components/common/drawer.vue'
   import { swiper, swiperSlide } from 'vue-awesome-swiper'
-  import swipeItem from '../common/music/swipeItem.vue'
+  import swipeItem from './swipeItem.vue'
   export default{
     components: {
-      Drawer,
       swiper,
       swiperSlide,
       swipeItem

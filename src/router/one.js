@@ -1,11 +1,8 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import One from '../components/one/home.vue'
-import Music from '../components/one/music.vue'
-import Today from '../components/one/today.vue'
-import About from '../components/one/about.vue'
-import ReadDetail from '../components/one/details/read/readDetail.vue'
-import QuestionDetail from '../components/one/details/read/questionDetail.vue'
+import ReadDetail from '../components/one/details/readDetail.vue'
+import QuestionDetail from '../components/one/details/questionDetail.vue'
 
 Vue.use(Router)
 
@@ -15,21 +12,6 @@ export default new Router({
       path: '/',
       name: 'home',
       component: One
-    },
-    {
-      path: '/music',
-      name: 'music',
-      component: Music
-    },
-    {
-      path: '/today',
-      name: 'today',
-      component: Today
-    },
-    {
-      path: '/about',
-      name: 'about',
-      component: About
     },
     {
       path: '/readDetail',

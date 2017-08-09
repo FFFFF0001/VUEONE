@@ -15,7 +15,7 @@
   </div>
 </template>
 <script>
-  import { GetPictureDetail } from '../../../network/picture/PictureRequests'
+  import { GetPictureDetail } from '../../network/picture/PictureRequests'
   import { XDialog, TransferDomDirective as TransferDom } from 'vux'
   export default {
     directives: {

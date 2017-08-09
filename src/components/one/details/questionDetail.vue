@@ -14,7 +14,7 @@
 
 <script type="text/ecmascript-6">
   import { XHeader } from 'vux'
-  import { GetQuestionDetail } from '../../../../network/read/ReadRequest'
+  import { GetQuestionDetail } from '../../../network/read/ReadRequest'
   export default{
     components: {
       XHeader

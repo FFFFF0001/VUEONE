@@ -23,9 +23,15 @@ exports.cssLoaders = function (options) {
   }
 
   // generate loader string to be used with extract text plugin
-  function generateLoaders(loader, loaderOptions) {
+  function generateLoaders (loader, loaderOptions) {
     var loaders = [cssLoader]
     if (loader) {
+      loaders.push({
+        loader: 'px2rem-loader',
+        options: Object.assign({}, loaderOptions, {
+          remUnit:112.5
+        })
+      })
       loaders.push({
         loader: loader + '-loader',
         options: Object.assign({}, loaderOptions, {
@@ -46,12 +52,12 @@ exports.cssLoaders = function (options) {
     }
   }
 
-  // https://vue-loader.vuejs.org/en/configurations/extract-css.html
+  // http://vuejs.github.io/vue-loader/en/configurations/extract-css.html
   return {
     css: generateLoaders(),
     postcss: generateLoaders(),
     less: generateLoaders('less'),
-    sass: generateLoaders('sass', {indentedSyntax: true}),
+    sass: generateLoaders('sass', { indentedSyntax: true }),
     scss: generateLoaders('sass'),
     stylus: generateLoaders('stylus'),
     styl: generateLoaders('stylus')
@@ -74,9 +80,9 @@ exports.styleLoaders = function (options) {
 
 
 //获取js入口文件
-exports.getEntries = function (globPath, type) {
+exports.getEntries = function (globPath,type) {
   var entries = {}
-  var ishtml = type !== undefined ? true : false;
+  var ishtml=type!==undefined?true:false;
   /**
    * 读取src目录,并进行路径裁剪
    */
@@ -91,7 +97,7 @@ exports.getEntries = function (globPath, type) {
     // 最终编译输出的文件也在module目录下， 访问路径需要时 localhost:8080/module/index.html
     // slice 从已有的数组中返回选定的元素, -3 倒序选择，即选择最后三个
     //以ocahost:8080/homeIndex.html这样形式访问
-    if (ishtml) {
+    if(ishtml){
       //html以模块文件作为输出
       //以locahost:8080/views/index.html这样形式访问
       /*var tmp = entry.split('/').splice(-3)
@@ -99,11 +105,12 @@ exports.getEntries = function (globPath, type) {
        console.log(moduleName);
        entries[moduleName] = entry*/
       var tmp = entry.split('/').splice(-3)
-      var pre = "one/"
-      var moduleName = pre + tmp.splice(1, 2).join("/");
+      var pre ="one/"
+      var moduleName = pre + tmp.splice(1,2).join("/");
       entries[moduleName] = entry
+
     }
-    else {
+    else{
       //js以模块文件作为输出,比如indx.js
       var basename = path.basename(entry, path.extname(entry));
       tmp = entry.split('/').splice(-3);
@@ -117,5 +124,6 @@ exports.getEntries = function (globPath, type) {
     // entries[moduleName] = entry
   });
   // console.log(entries);
+  // 获取的主入口如下： { main: './src/module/index/main.js', test: './src/module/test/test.js' }
   return entries;
 }

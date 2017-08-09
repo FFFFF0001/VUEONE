@@ -13,7 +13,7 @@
 
 <script type="text/ecmascript-6">
   import { XHeader } from 'vux'
-  import { GetArticleDetail } from '../../../../network/read/ReadRequest'
+  import { GetArticleDetail } from '../../../network/read/ReadRequest'
   export default{
     components: {
       XHeader
