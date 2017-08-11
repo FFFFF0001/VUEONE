@@ -12,5 +12,4 @@
 
 <style lang="scss" rel="stylesheet/scss" scoped>
   @import "./girl/index.css";
-
 </style>

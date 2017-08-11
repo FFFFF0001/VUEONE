@@ -56,8 +56,8 @@ const webpackConfig = {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         query: {
-          limit: 10000,
-          name: utils.assetsPath('app_img/creditcard/[name].[ext]')
+          limit: 100000,
+          name: utils.assetsPath('app_img/one/[name].[ext]')
         }
       },
       {

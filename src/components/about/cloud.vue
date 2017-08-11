@@ -22,16 +22,14 @@
 </script>
 <style>
   .container {
+    overflow: hidden;
     background-color: #81cee8;
   }
 
   .main_window {
-    overflow: hidden;
     display: block;
     padding: 0;
     margin: 0 auto;
-    width: 1256px;
-    height: 624px;
   }
 
   div {
@@ -40,8 +38,8 @@
   }
 
   .cloud {
-    width: 200px;
-    height: 50px;
+    width: 150px;
+    height: 0px;
     background-color: #fff;
     border-radius: 30px;
     position: absolute;

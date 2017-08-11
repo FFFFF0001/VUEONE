@@ -31,9 +31,9 @@
         let self = this
         let id = this.$route.params.id
         new GetArticleDetail(id).start(function (data) {
-          console.log(data.data.data)
           self.essay = data.data.data
           document.getElementById('essay-content').innerHTML = data.data.data.hp_content
+          document.title = data.data.data.hp_title
           if (self.essay.audio) {
             self.canAudio = true
           }

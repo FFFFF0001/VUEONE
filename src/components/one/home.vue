@@ -52,6 +52,7 @@
       }
     },
     mounted: function () {
+      document.title = '听说'
       if (this.pictureIds.length !== REQUEST_INST) {
         this.initData()
       }
@@ -88,7 +89,6 @@
           self.pictureIds = data.data.data
         })
         new GetLatestArticle().start(function (data) {
-          console.log(data.data.data)
           self.essays = data.data.data.essay
           self.questions = data.data.data.question
         })
@@ -115,15 +115,6 @@
 <style lang="less">
   #swipe-item {
     width: 100%;
-  }
-
-  @font-face {
-    font-family: HanFontTTF;
-    src: url('../../assets/font/han_type.ttf');
-  }
-
-  .container {
-    font-family: HanFontTTF;
   }
 
   swiper {

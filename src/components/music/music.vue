@@ -51,13 +51,7 @@
   }
 </script>
 <style lang="less">
-  @font-face {
-    font-family: HanFontTTF;
-    src: url('../../assets/font/han_type.ttf');
-  }
-
   .container {
-    font-family: HanFontTTF;
     margin-top: 5px;
   }
 </style>

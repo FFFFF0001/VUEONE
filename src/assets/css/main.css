@@ -9,11 +9,6 @@ html, body {
   -webkit-text-size-adjust: none;
 }
 
-@font-face {
-  font-family: HanFontTTF;
-  src: url('../font/han_type.ttf');
-}
-
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
   display: block;
 }
@@ -23,8 +18,7 @@ figure {
 }
 
 body, button, input, select, textarea {
-  font: 0.75em/1.5;
-  font-family: HanFontTTF;
+  font: 0.75em/1.5 "PingFangSC", "San Francisco", "NotoSans", "Roboto", "STHeiti SC", 'microsoft yahei', arial, sans-serif, \5b8b\4f53;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -34,6 +28,10 @@ h1, h2, h3, h4, h5, h6 {
 
 address, cite, dfn, em, var {
   font-style: normal
+}
+
+code, kbd, pre, samp {
+  font-family: courier new, courier, monospace;
 }
 
 small {

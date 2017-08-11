@@ -74,17 +74,12 @@
   }
 </script>
 <style lang="less">
-  @font-face {
-    font-family: HanFontTTF;
-    src: url('../../assets/font/han_type.ttf');
-  }
-
   .container {
-    font-family: HanFontTTF;
+    flex: 1;
     width: 100%;
-    height: 750px;
+    height: 675px;
     justify-content: center;
-    padding: 20px 0 20px 0;
+    padding: 0;
   }
 
   #sth-word {
@@ -103,8 +98,7 @@
 
   .text-info {
     text-align: center;
-    padding: 20px;
-    margin-top: 50px;
+    padding: 80px 0;
     font-size: 25px;
     font-weight: 200;
     letter-spacing: 1px;
@@ -114,7 +108,8 @@
   .about-wrapper {
     position: relative;
     width: 60%;
-    margin: 100px 0 20px 20%;
+    margin: 0px 0 20px 20%;
+    padding: 20px 0;
     animation: mymove 2s infinite alternate;
     -webkit-animation: mymove 2s infinite alternate; /* Safari and Chrome */
     animation-timing-function: linear;

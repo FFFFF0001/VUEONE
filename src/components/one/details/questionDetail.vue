@@ -42,6 +42,7 @@
         new GetQuestionDetail(id).start(function (data) {
           console.log(data.data.data)
           self.question = data.data.data
+          document.title = data.data.data.answer_title
           document.getElementById('question-content').innerHTML = data.data.data.answer_content
         })
       }
