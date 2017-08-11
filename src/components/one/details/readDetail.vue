@@ -53,6 +53,8 @@
     font-weight: 300;
     text-align: center;
     letter-spacing: 1px;
+    margin-top: 5px;
+    padding: 5px;
   }
   .essay {
     padding-left: 15px;

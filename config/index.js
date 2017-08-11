@@ -37,6 +37,6 @@ module.exports = {
     cssSourceMap: false
   },
   module: {
-    name: 'about'
+    name: '*'
   }
 }

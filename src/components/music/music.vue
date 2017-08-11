@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in musicIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
@@ -51,5 +51,13 @@
   }
 </script>
 <style lang="less">
+  @font-face {
+    font-family: HanFontTTF;
+    src: url('../../assets/font/han_type.ttf');
+  }
 
+  .container {
+    font-family: HanFontTTF;
+    margin-top: 5px;
+  }
 </style>

@@ -13,21 +13,38 @@
         </div>
       </div>
     </transition>
-    <div v-if="showPlane">欢迎来到隐藏剧情</div>
-    <transition name="word"
-                v-on:l="leave">
-      <div id="sth-word" v-if="showInfo"></div>
+    <div class="text-rtr" v-if="showPlane">欢迎来到隐藏剧情</div>
+    <transition name="word">
+      <div class="text-info" id="sth-word" v-if="showInfo"></div>
     </transition>
+    <transition name="running"
+                v-on:after-enter="afterGirlEnter"
+                v-on:after-leave="afterGirlLeave"
+    >
+      <Girl v-if="showGirl"></Girl>
+    </transition>
+    <transition name="word">
+      <div class="text-rtr" v-if="showBlogEnter" @click="goGirl()">进入博客</div>
+    </transition>
+    <Cloud></Cloud>
   </div>
 </template>
 <script type="text/ecmascript-6">
+  import Cloud from './cloud.vue'
+  import Girl from './girl.vue'
   export default{
+    components: {
+      Cloud,
+      Girl
+    },
     data () {
       return {
         showPlane: true,
         index: 0,
         showInfo: false,
-        word: '保持技术嗅觉，热爱开源的一切，为成为一名攻城狮而不是码农而努力，欢迎进入我的博客。'
+        word: '保持技术嗅觉，热爱开源的一切。',
+        showGirl: false,
+        showBlogEnter: false
       }
     },
     methods: {
@@ -36,22 +53,36 @@
       },
       showWord: function () {
         if (this.index === this.word.length) {
-          window.location.href = 'http://mifind.online'
+          this.showGirl = true
         }
         document.getElementById('sth-word').innerText = this.word.substring(0, this.index++)
       },
-      afterPlaneLeave: function (el) {
+      afterPlaneLeave: function () {
         setInterval(this.showWord, 200)
         this.showInfo = true
+      },
+      goGirl: function () {
+        this.showGirl = !this.showGirl
+      },
+      afterGirlEnter: function () {
+        this.showBlogEnter = true
+      },
+      afterGirlLeave: function () {
+        window.location.href = 'http://mifind.online'
       }
     }
   }
 </script>
 <style lang="less">
+  @font-face {
+    font-family: HanFontTTF;
+    src: url('../../assets/font/han_type.ttf');
+  }
+
   .container {
+    font-family: HanFontTTF;
     width: 100%;
     height: 750px;
-    background-color: rgb(255, 210, 0);
     justify-content: center;
     padding: 20px 0 20px 0;
   }
@@ -60,11 +91,30 @@
     padding: 10px 20px;
   }
 
+  .text-rtr {
+    text-align: center;
+    padding: 0;
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: #5E616A
+  }
+
+  .text-info {
+    text-align: center;
+    padding: 20px;
+    margin-top: 50px;
+    font-size: 25px;
+    font-weight: 200;
+    letter-spacing: 1px;
+    color: whitesmoke;
+  }
+
   .about-wrapper {
     position: relative;
-    background-color: rgb(255, 210, 0);
     width: 60%;
-    margin: 0 0 20px 20%;
+    margin: 100px 0 20px 20%;
     animation: mymove 2s infinite alternate;
     -webkit-animation: mymove 2s infinite alternate; /* Safari and Chrome */
     animation-timing-function: linear;
@@ -79,6 +129,7 @@
     width: 100%;
     -webkit-transform: rotateY(-28deg);
     transform: rotateY(-28deg);
+    stroke: white;
   }
 
   .plane-wrapper .rotate-container {
@@ -94,13 +145,49 @@
     animation: rotating .2s linear infinite reverse;
   }
 
-  .word-open-active {
-    transition: all 0.5s ease
+  .word-enter {
+    transition: all 1s ease
   }
 
   .plane-leave-active {
     animation-name: plan-out;
-    animation-duration: .5s;
+    animation-duration: 1s;
+  }
+
+  .running-enter-active {
+    animation-name: girl-open;
+    animation-duration: 5s;
+  }
+
+  .running-leave-active {
+    animation-name: girl-leave;
+    animation-duration: 5s;
+  }
+
+  @keyframes girl-open {
+    0% {
+      transform: translate3d(120%, 120%, 0)
+    }
+    100% {
+      transform: translate3d(0, 0, 0)
+    }
+  }
+
+  @keyframes girl-leave {
+    0% {
+      transform: rotate(0deg) skew(0deg) scale(1);
+      -ms-transform: rotate(0deg) skew(0deg) scale(1); /* IE 9 */
+      -moz-transform: rotate(0deg) skew(0deg) scale(1); /* Firefox */
+      -webkit-transform: rotate(0deg) skew(0deg) scale(1); /* Safari ºÍ Chrome */
+      -o-transform: rotate(0deg) skew(0deg) scale(1);
+    }
+    100% {
+      transform: rotate(0deg) skew(0deg) scale(0);
+      -ms-transform: rotate(0deg) skew(0deg) scale(0); /* IE 9 */
+      -moz-transform: rotate(0deg) skew(0deg) scale(0); /* Firefox */
+      -webkit-transform: rotate(0deg) skew(0deg) scale(0); /* Safari ºÍ Chrome */
+      -o-transform: rotate(0deg) skew(0deg) scale(0);
+    }
   }
 
   @keyframes plan-out {

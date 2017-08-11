@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="container">
     <swiper :options="swiperOption" ref="mySwiper">
       <swiper-slide v-for="item in pictureIds">
         <swipeItem id="swipe-item" :data="item"></swipeItem>
@@ -115,6 +115,15 @@
 <style lang="less">
   #swipe-item {
     width: 100%;
+  }
+
+  @font-face {
+    font-family: HanFontTTF;
+    src: url('../../assets/font/han_type.ttf');
+  }
+
+  .container {
+    font-family: HanFontTTF;
   }
 
   swiper {
